@@ -1,8 +1,12 @@
-export function fetchPokemon(name) {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then(res => {
-    if (res.ok) {
-      return res.json();
+function fetchPokemon(name) {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then(response => {
+    if (response.ok) {
+      return response.json();
     }
-    return Promise.reject(new Error(`Покемона с именем ${name} нет`));
+    return Promise.reject(new Error(`we don't have ${name} pokemon`));
   });
 }
+const api = {
+  fetchPokemon,
+};
+export default api;

@@ -8,6 +8,7 @@ export default function PokemonData({ pokemon: { sprites, name, stats } }) {
         alt={name}
         width="200"
       />
+      <h1>{name}</h1>
       <ul>
         {stats.map(entry => (
           <li key={entry.stat.name}>

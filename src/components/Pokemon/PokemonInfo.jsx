@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PokemonData from './PokemonData';
 import PokemonError from './PokemonError';
 import PokemonLoading from './PokemonLoading';
-import { fetchPokemon } from '../../services/pokemon.api';
+import pokemonAPI from '../../services/pokemon.api';
+import PokemonData from './PokemonData';
 
 export default class PokemonInfo extends Component {
   state = {
@@ -17,7 +17,8 @@ export default class PokemonInfo extends Component {
     if (prevName !== nextName) {
       this.setState({ status: 'pending' });
 
-      fetchPokemon()
+      pokemonAPI
+        .fetchPokemon(nextName)
         .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
         .catch(error => this.setState({ error, status: 'rejected' }));
     }
@@ -25,13 +26,12 @@ export default class PokemonInfo extends Component {
 
   render() {
     const { pokemon, error, status } = this.state;
-    const { pokemonName } = this.props;
-
+    // const { pokemonName } = this.props;
     if (status === 'idle') {
-      return <div>Write pokemon name</div>;
+      return <div>write name pok</div>;
     }
     if (status === 'pending') {
-      return <PokemonLoading pokemonName={pokemonName} />;
+      return <PokemonLoading pokemonName={this.props.pokemonName} />;
     }
     if (status === 'rejected') {
       return <PokemonError message={error.message} />;
