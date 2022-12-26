@@ -1,32 +1,32 @@
 import logo from './logo.svg';
-import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import React, { Component } from 'react';
-import PokemonForm from './components/Pokemon/PokemonForm';
-import PokemonInfo from './components/Pokemon/PokemonInfo';
 import { CountryApp } from './components/Country/CountryApp';
+import { Routes, Route } from 'react-router-dom';
+import { AppBar } from './components/AppBar/AppBar';
+import PokemonApp from './components/Pokemon/PokemonApp';
+import { Loyout } from './components/Loyout/Loyout';
+import { ReactComponent } from './components/ReactComponent/ReactComponent';
+import { MainBox } from './App.styled';
 
 export default class App extends Component {
-  state = {
-    pokemon: null,
-    pokemonName: ' ',
-    loading: false,
-  };
-
-  handleFormSubmit = pokemonName => {
-    this.setState({ pokemonName });
-  };
-
   render() {
     return (
-      <div>
-        {/* <PokemonForm onSubmitProp={this.handleFormSubmit} />
-        <PokemonInfo pokemonName={this.state.pokemonName} /> */}
+      <MainBox>
+        {/* <AppBar /> */}
         <Toaster />
-        <CountryApp />
-        {this.state.loading && <h1>Loading</h1>}
-        {this.state.pokemon && <div>{this.state.pokemon.name}</div>}
-      </div>
+        <Routes>
+          <Route path="/" element={<Loyout />}>
+            <Route path="html" element={<div>Html</div>} />
+            <Route path="css" element={<div>Css</div>} />
+            <Route path="js" element={<div>JavaScript</div>} />
+            <Route path="react" element={<ReactComponent />}>
+              <Route path="pokemon" element={<PokemonApp />}></Route>
+              <Route path="country" element={<CountryApp />}></Route>
+            </Route>
+          </Route>
+        </Routes>
+      </MainBox>
     );
   }
 }
