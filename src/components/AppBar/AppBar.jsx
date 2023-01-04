@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+// import { NavLink, Outlet } from 'react-router-dom';
 import { NavItem, Box, Span } from './AppBar.styled';
 import { SiHtml5, SiCss3, SiJavascript, SiReact } from 'react-icons/si';
 
