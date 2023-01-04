@@ -1,19 +1,23 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { NavItem, Box } from './AppBar.styled';
+import { NavItem, Box, Span } from './AppBar.styled';
+import { SiHtml5, SiCss3, SiJavascript, SiReact } from 'react-icons/si';
 
 const navItem = [
-  { href: 'html', text: 'HTML' },
-  { href: 'css', text: 'CSS' },
-  { href: 'js', text: 'Java Script' },
-  { href: 'react', text: 'ReactComponent' },
+  { href: 'html', text: 'HTML', icon: SiHtml5 },
+  { href: 'css', text: 'CSS', icon: SiCss3 },
+  { href: 'js', text: 'Java Script', icon: SiJavascript },
+  { href: 'react', text: 'React', icon: SiReact },
 ];
 export const AppBar = () => {
   return (
     <Box>
-      {navItem.map(item => (
-        <NavItem to={item.href} key={item.href}>
-          {item.text}
+      {navItem.map(({ href, icon: Icon, text }) => (
+        <NavItem to={href} key={href}>
+          <Span>
+            <Icon size="16" />
+          </Span>
+          {text}
         </NavItem>
       ))}
     </Box>
