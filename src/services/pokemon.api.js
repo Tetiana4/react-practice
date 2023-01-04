@@ -3,7 +3,7 @@ function fetchPokemon(name) {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`we don't have ${name} pokemon`));
+    return Promise.reject(new Error(`pokemon with name '${name}' not found`));
   });
 }
 const api = {

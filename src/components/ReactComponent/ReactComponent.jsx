@@ -1,19 +1,36 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { SiPokemon } from 'react-icons/si';
+import { IoMdGlobe } from 'react-icons/io';
 import { Outlet } from 'react-router-dom';
 import PokemonApp from '../Pokemon/PokemonApp';
-import { Box, NavItem } from './ReactComponent.styled';
+import {
+  Box,
+  Header,
+  List,
+  NavItem,
+  Icon,
+  Span,
+} from './ReactComponent.styled';
 
 const navItem = [
-  { href: 'pokemon', text: 'Pokemon' },
-  { href: 'country', text: 'Country' },
+  { href: 'pokemon', text: 'Pokemon', icon: SiPokemon },
+  { href: 'country', text: 'Country', icon: IoMdGlobe },
 ];
 export const ReactComponent = () => {
   return (
     <Box>
-      {navItem.map(({ href, text }) => (
-        <NavItem to={href}>{text}</NavItem>
-      ))}
+      <Header>
+        <List>
+          {navItem.map(({ href, text, icon: Icon }) => (
+            <NavItem key={href} to={href}>
+              <Span>
+                <Icon size="18" />
+              </Span>
+              {text}
+            </NavItem>
+          ))}
+        </List>
+      </Header>
       <Outlet />
     </Box>
   );

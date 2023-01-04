@@ -26,9 +26,8 @@ export default class PokemonInfo extends Component {
 
   render() {
     const { pokemon, error, status } = this.state;
-    // const { pokemonName } = this.props;
     if (status === 'idle') {
-      return <div>write name pok</div>;
+      return <div>please, write pokemon name in input</div>;
     }
     if (status === 'pending') {
       return <PokemonLoading pokemonName={this.props.pokemonName} />;
@@ -37,6 +36,7 @@ export default class PokemonInfo extends Component {
       return <PokemonError message={error.message} />;
     }
     if (status === 'resolved') {
+      // pokemon: null;
       return <PokemonData pokemon={pokemon} />;
     }
   }

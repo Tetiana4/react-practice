@@ -2,21 +2,13 @@ import { Component } from 'react';
 import toast from 'react-hot-toast';
 import React from 'react';
 import PokemonInfo from './PokemonInfo';
+import { Box, Input, Form, SearchButton } from './Pokemon.styled';
+import { FcSearch } from 'react-icons/fc';
 
 export default class PokemonForm extends Component {
   state = {
     pokemonName: '',
   };
-
-  // state = {
-  //   pokemon: null,
-  //   pokemonName: ' ',
-  //   loading: false,
-  // };
-
-  // handleFormSubmit = pokemonName => {
-  //   this.setState({ pokemonName });
-  // };
 
   handleNameChange = e => {
     this.setState({ pokemonName: e.currentTarget.value.toLowerCase() });
@@ -33,17 +25,24 @@ export default class PokemonForm extends Component {
   };
 
   render() {
+    const style = {
+      width: '20px',
+      height: '20px',
+    };
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <input
+        <Form onSubmit={this.handleSubmit}>
+          <Input
             type="text"
             name="pokemonName"
+            placeholder="search pokemon"
             value={this.state.pokemonName}
             onChange={this.handleNameChange}
           />
-          <button type="submit">search</button>
-        </form>
+          <SearchButton type="submit">
+            <FcSearch style={style} />
+          </SearchButton>
+        </Form>
       </>
     );
   }

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import toast from 'react-hot-toast';
 import { fetchCountry } from '../../services/country.api';
 import { CountryList } from './CountryList';
-import { SearchForm } from './SearchForm';
+import { CountryForm } from './CountryForm';
 import { CountryInfo } from './CountryInfo';
+import { Box } from './Country.styled';
 
 export class CountryApp extends Component {
   state = {
@@ -29,6 +30,7 @@ export class CountryApp extends Component {
           },
         );
       }
+
       this.setState({ countries });
     }
   }
@@ -38,12 +40,12 @@ export class CountryApp extends Component {
     const showCountryList = countries.length >= 2 && countries.length < 10;
     const showCountryInfo = countries.length === 1;
     return (
-      <div>
-        <SearchForm onSubmit={this.handleFormSubmit} />
+      <Box>
+        <CountryForm onSubmit={this.handleFormSubmit} />
         {showCountryList && <CountryList countries={countries} />}
         {showCountryInfo && <CountryInfo country={countries[0]} />}
         <toast />
-      </div>
+      </Box>
     );
   }
 }

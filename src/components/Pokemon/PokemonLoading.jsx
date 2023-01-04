@@ -2,6 +2,7 @@ import React from 'react';
 import { BallTriangle } from 'react-loader-spinner';
 import PokemonData from './PokemonData';
 import loadingImage from './mark.jpg';
+import { Loader } from './Pokemon.styled';
 
 export default function PokemonLoading({ pokemonName }) {
   const pokemon = {
@@ -16,12 +17,12 @@ export default function PokemonLoading({ pokemonName }) {
     stats: [],
   };
   return (
-    <div>
-      <div>
-        <BallTriangle color="#00BFFF" height={80} width={80} />
-        Searching
-      </div>
+    <>
+      <Loader>
+        <BallTriangle color="#af4f75" height="65" width="65" />
+      </Loader>
+
       <PokemonData pokemon={pokemon} />
-    </div>
+    </>
   );
 }
