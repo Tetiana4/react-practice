@@ -6,13 +6,38 @@ export const Box = styled.div`
   margin: 0;
   padding: 0;
 `;
+export const Header = styled.header`
+  border-bottom: 2px groove #c85b86;
+  background: #e3adc2;
+  margin-bottom: 20px;
+`;
+
+export const List = styled.ul`
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+`;
 
 export const NavItem = styled(NavLink)`
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
   border-radius: 4px;
   text-decoration: none;
+  padding: 20px 40px;
   color: #140e12;
   &.active {
-    color: #f2cbe5;
+    color: white;
     background-color: #751455;
   }
+  :hover:not(.active),
+  :focus-visible:not(.active) {
+    background-color: #cc9bbb;
+  }
+`;
+export const Span = styled.span`
+  color: black;
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
 `;
