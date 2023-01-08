@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import toast from 'react-hot-toast';
 import React from 'react';
-import PokemonInfo from './PokemonInfo';
-import { Box, Input, Form, SearchButton } from './Pokemon.styled';
+// import PokemonInfo from './PokemonInfo';
+import { Input, Form, SearchButton } from './Pokemon.styled';
 import { FcSearch } from 'react-icons/fc';
 
 export default class PokemonForm extends Component {

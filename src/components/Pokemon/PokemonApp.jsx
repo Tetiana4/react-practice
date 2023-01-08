@@ -7,7 +7,7 @@ export default class PokemonApp extends Component {
   state = {
     pokemon: null,
     pokemonName: ' ',
-    loading: false,
+    // loading: false,
   };
 
   handleFormSubmit = pokemonName => {
