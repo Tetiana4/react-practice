@@ -13,15 +13,15 @@ export const Header = styled.header`
 `;
 
 export const List = styled.ul`
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 0;
+  padding: 0;
 `;
 
 export const NavItem = styled(NavLink)`
-  display: inline-block;
-  vertical-align: middle;
-  margin: 10px 0;
+  text-align: center;
+  margin: 0;
   border-radius: 4px;
   text-decoration: none;
   padding: 20px 40px;
