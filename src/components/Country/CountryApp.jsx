@@ -10,7 +10,9 @@ export class CountryApp extends Component {
   state = {
     countryName: null,
     countries: [],
-    reqStatus: 'idle',
+    isLoading: false,
+    error: null,
+    // reqStatus: 'idle',
     // idle, pending, fulfield(resolved), rejected
   };
 
@@ -20,28 +22,36 @@ export class CountryApp extends Component {
 
   async componentDidUpdate(_, prevState) {
     if (prevState.countryName !== this.state.countryName) {
-      const countries = await fetchCountry(this.state.countryName);
+      this.setState({ isLoading: true });
+      try {
+        const countries = await fetchCountry(this.state.countryName);
 
-      if (countries.length > 10) {
-        return toast(
-          'Too many matches found. Please enter a more specific name',
-          {
-            icon: '🤯',
-          },
-        );
+        if (countries.length > 10) {
+          return toast(
+            'Too many matches found. Please enter a more specific name',
+            {
+              icon: '🤯',
+            },
+          );
+        }
+
+        this.setState({ countries });
+      } catch (error) {
+        this.setState({ error });
+      } finally {
+        this.setState({ isLoading: false });
       }
-
-      this.setState({ countries });
     }
   }
 
   render() {
-    const { countries } = this.state;
+    const { countries, isLoading, error } = this.state;
     const showCountryList = countries.length >= 2 && countries.length < 10;
     const showCountryInfo = countries.length === 1;
     return (
       <Box>
         <CountryForm onSubmit={this.handleFormSubmit} />
+        {error && <p>Something wrong</p>}
         {showCountryList && <CountryList countries={countries} />}
         {showCountryInfo && <CountryInfo country={countries[0]} />}
         <toast />
