@@ -5,6 +5,7 @@ import { CountryList } from './CountryList';
 import { CountryForm } from './CountryForm';
 import { CountryInfo } from './CountryInfo';
 import { Box } from './Country.styled';
+import { Audio } from 'react-loader-spinner';
 
 export class CountryApp extends Component {
   state = {
@@ -23,6 +24,7 @@ export class CountryApp extends Component {
   async componentDidUpdate(_, prevState) {
     if (prevState.countryName !== this.state.countryName) {
       this.setState({ isLoading: true });
+
       try {
         const countries = await fetchCountry(this.state.countryName);
 
@@ -34,7 +36,6 @@ export class CountryApp extends Component {
             },
           );
         }
-
         this.setState({ countries });
       } catch (error) {
         this.setState({ error });
@@ -51,9 +52,10 @@ export class CountryApp extends Component {
     return (
       <Box>
         <CountryForm onSubmit={this.handleFormSubmit} />
-        {error && <p>Something wrong</p>}
+        {isLoading && <Audio />}
         {showCountryList && <CountryList countries={countries} />}
         {showCountryInfo && <CountryInfo country={countries[0]} />}
+        {error && <p>Something wrong</p>}
         <toast />
       </Box>
     );

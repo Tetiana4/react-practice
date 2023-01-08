@@ -10,7 +10,7 @@ export const CountryForm = ({ onSubmit }) => {
       }}
       autoComplete="off"
     >
-      <Input type="text" name="countryName" />
+      <Input type="text" name="countryName" placeholder="search country" />
       <SearchButton type="submit">Search</SearchButton>
     </Form>
   );
