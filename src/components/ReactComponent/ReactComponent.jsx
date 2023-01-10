@@ -2,6 +2,7 @@ import React from 'react';
 import { SiPokemon } from 'react-icons/si';
 import { IoMdGlobe } from 'react-icons/io';
 import { Outlet } from 'react-router-dom';
+import { FaWpforms } from 'react-icons/fa';
 import PokemonApp from '../Pokemon/PokemonApp';
 import {
   Box,
@@ -15,6 +16,7 @@ import {
 const navItem = [
   { href: 'pokemon', text: 'Pokemon', icon: SiPokemon },
   { href: 'country', text: 'Country', icon: IoMdGlobe },
+  { href: 'form', text: 'ReactForm', icon: FaWpforms },
 ];
 export const ReactComponent = () => {
   return (
