@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import React, { Component } from 'react';
 import { CountryApp } from './components/Country/CountryApp';
 import { Routes, Route } from 'react-router-dom';
-import { AppBar } from './components/AppBar/AppBar';
+import { FormApp } from './components/Form/FormApp';
 import PokemonApp from './components/Pokemon/PokemonApp';
 import { Loyout } from './components/Loyout/Loyout';
 import { ReactComponent } from './components/ReactComponent/ReactComponent';
@@ -23,6 +23,12 @@ export default class App extends Component {
             <Route path="react" element={<ReactComponent />}>
               <Route path="pokemon" element={<PokemonApp />}></Route>
               <Route path="country" element={<CountryApp />}></Route>
+              <Route path="form" element={<FormApp />}>
+                <Route path="step1" element={<div>Step1</div>}></Route>
+                <Route path="step2" element={<div>Step2</div>}></Route>
+                <Route path="step3" element={<div>Step3</div>}></Route>
+                <Route path="result" element={<div>Result</div>}></Route>
+              </Route>
             </Route>
           </Route>
         </Routes>
