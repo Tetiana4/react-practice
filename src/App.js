@@ -8,7 +8,7 @@ import PokemonApp from './components/Pokemon/PokemonApp';
 import { Loyout } from './components/Loyout/Loyout';
 import { ReactComponent } from './components/ReactComponent/ReactComponent';
 import { MainBox } from './App.styled';
-
+import { StepOne } from './components/Form/StepOne';
 export default class App extends Component {
   render() {
     return (
@@ -24,7 +24,6 @@ export default class App extends Component {
               <Route path="pokemon" element={<PokemonApp />}></Route>
               <Route path="country" element={<CountryApp />}></Route>
               <Route path="form" element={<FormApp />}>
-                <Route path="step1" element={<div>Step1</div>}></Route>
                 <Route path="step2" element={<div>Step2</div>}></Route>
                 <Route path="step3" element={<div>Step3</div>}></Route>
                 <Route path="result" element={<div>Result</div>}></Route>
