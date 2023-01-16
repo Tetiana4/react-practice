@@ -1,7 +1,7 @@
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { textAlign } from '@mui/system';
+
 const useStyles = makeStyles(theme => ({
   root: {
     margin: theme.spacing(3, 0, 2),
@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
     textShadow: ' 1px 1px darkmagenta',
   },
 }));
+
 export const Header = () => {
   const styles = useStyles();
   return (
