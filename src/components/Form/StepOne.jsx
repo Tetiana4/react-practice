@@ -2,7 +2,6 @@ import { Typography } from '@material-ui/core';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from './Input';
-// import { Header } from './Header';
 
 import { PrimaryButton } from './PrimaryButton';
 import { MainContainer } from './MainContainer';
@@ -10,7 +9,6 @@ import { Form } from './Form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-// import { Outlet } from 'react-router-dom';
 
 const schema = yup.object().shape({
   firstName: yup
@@ -35,6 +33,7 @@ export const StepOne = () => {
 
   const onSubmit = data => {
     navigate('step2');
+    // console.log(data);
   };
 
   return (
