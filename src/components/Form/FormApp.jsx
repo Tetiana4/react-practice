@@ -4,17 +4,23 @@ import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { Header } from './Header';
 import { StepOne } from './StepOne';
-const navItem = [{ href: 'step2' }, { href: 'step3' }, { href: 'result' }];
+// const navItem = [{ href: 'step2' }, { href: 'step3' }, { href: 'result' }];
 export const FormApp = () => {
   return (
     <>
       <Header />
-      <ul>
-        {navItem.map(({ href }) => (
-          <NavLink key={href} to={href}></NavLink>
-        ))}
-      </ul>
-      <StepOne />
+      {/* <StepOne /> */}
+      {/* <nav>
+        <ul>
+          <li>
+            <NavLink to="step2">Thdhsd</NavLink>
+          </li>
+          <li>
+            <NavLink to="result">Result</NavLink>
+          </li>
+        </ul>
+      </nav> */}
+
       <Outlet />
     </>
   );
