@@ -9,6 +9,9 @@ import { Loyout } from './components/Loyout/Loyout';
 import { ReactComponent } from './components/ReactComponent/ReactComponent';
 import { MainBox } from './App.styled';
 import { StepOne } from './components/Form/StepOne';
+import { StepTwo } from './components/Form/StepTwo';
+import { Result } from './components/Form/Result';
+
 export default class App extends Component {
   render() {
     return (
@@ -24,9 +27,9 @@ export default class App extends Component {
               <Route path="pokemon" element={<PokemonApp />}></Route>
               <Route path="country" element={<CountryApp />}></Route>
               <Route path="form" element={<FormApp />}>
-                <Route path="step2" element={<div>step2</div>}></Route>
-                <Route path="step3" element={<div>Step3</div>}></Route>
-                <Route path="result" element={<div>Result</div>}></Route>
+                <Route path="" element={<StepOne />}></Route>
+                <Route path="step2" element={<StepTwo />}></Route>
+                <Route path="step2/result" element={<Result />}></Route>
               </Route>
             </Route>
           </Route>
