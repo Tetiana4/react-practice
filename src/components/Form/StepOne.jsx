@@ -2,7 +2,7 @@ import { Typography } from '@material-ui/core';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from './Input';
-
+import { useData } from './DataContext';
 import { PrimaryButton } from './PrimaryButton';
 import { MainContainer } from './MainContainer';
 import { Form } from './Form';
@@ -22,24 +22,28 @@ const schema = yup.object().shape({
 });
 export const StepOne = () => {
   const navigate = useNavigate();
+  const { data, setValues } = useData();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
+    defaultValues: { firstName: data.firstName, lastName: data.lastName },
     mode: 'onBlur',
     resolver: yupResolver(schema),
   });
 
   const onSubmit = data => {
     navigate('step2');
-    // console.log(data);
+    setValues(data);
   };
 
   return (
     <>
       <MainContainer>
-        <Typography component="h2" variant="h5"></Typography>
+        <Typography component="h2" variant="h5">
+          Step 1
+        </Typography>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Input
             {...register('firstName')}
